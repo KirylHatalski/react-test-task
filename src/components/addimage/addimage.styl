@@ -16,10 +16,10 @@
     width 330px
     height @width
   @media screen and (min-width: 768px)
-    width 400px
+    width 395px
     height @width
   @media screen and (min-width: 1024px)
-    width 330px
+    width 380px
     height @width
   @media screen and (min-width: 1920px)
     width 400px
@@ -40,10 +40,62 @@
     color #bbb
     vertical-align middle
 
+  &-popup
+    display none
+    absolute top 0 left 0
+    width 100%
+    font-family Verdana
+    height 100%
+    background rgba(#222222, 0.92)
+    z-index 3
+    text-align center
+    cursor default
+
+    &.visible
+      display block
+
+    &-up
+      display block
+      width 100%
+      text-align right
+      margin-bottom 32%
+
+    &-close
+      display inline-block
+      font-style normal
+      width 20px
+      height @width
+      transform rotate(45deg)
+      cursor pointer
+      border-radius 3px
+
+      &:hover
+        color #757575
+
+
   &-input
-    absolute top 0 right 0
-    font-size 99em
-    background #fff
-    opacity 0
-    z-index 2
+    width 80%
+    height 20px
+    padding 5px 10px
+    margin 0 calc(10% - 10px) 5px
+    background #303030
+    border 1px solid #2a2a2a
+    outline none
+    border-radius 3px
+    font-size 0.56em
+
+  &-submit
+    display block
+    width 40%
+    height 10%
+    margin 10px 30% 0
+    border none
+    border-radius 3px
+    background rgba(76, 76, 76, 1)
+    box-sizing border-box
+    text-transform uppercase
+    font-size 0.8em
+    font-weight 600
+    letter-spacing 3px
+    color #989898
     cursor pointer

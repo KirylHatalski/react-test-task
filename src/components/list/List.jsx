@@ -62,10 +62,13 @@ class List extends Component {
   render() {
     return (
       <div className='images-list'>
+        <div className='images-list-galery'>
+
         {this.state.source.map((val, i) => {
           return <Image source={val} key={i} changeRatingUp={this.changeRatingUp} changeRatingDown={this.changeRatingDown}/>
         })}
-        <AddImage/>
+        <AddImage addImage={this.addImage}/>
+        </div>
       </div>
     )
   }
