@@ -9,7 +9,7 @@
 
 
   @media screen and (min-width: 320px)
-    width 330px
+    width 310px
     height @width
   @media screen and (min-width: 768px)
     width 395px
@@ -43,22 +43,16 @@
     animation-timing-function linear
     animation-delay 0
 
-
-@keyframes hide-show {
-  0% {
+@keyframes hide-show
+  0%
     opacity 1
     transform scale(1, 1)
     background-color none
-  }
-  50% {
+  50%
     opacity 0
     transform scale(0.7, 0.7)
     background-color #292929
-  }
-  100% {
+  100%
     transform scale(1, 1)
     opacity 1
     background-color none
-  }
-
-}

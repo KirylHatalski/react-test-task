@@ -5,26 +5,7 @@ import Image from '../image/Image';
 import AddImage from '../addimage/AddImage';
 
 import IMAGE_ARR from '../../data/imageslink';
-
-function buildSource(array) {
-  let tmpArr = [];
-  array.forEach((val) => {
-    tmpArr.push({url: val, rating: 0})
-  })
-  return tmpArr;
-}
-
-function sorter(array) {
-  function compare(a, b) {
-    return b.rating - a.rating;
-  }
-  try {
-    return array.sort(compare)
-  } catch (err) {
-    console.log(err);
-    return array;
-  }
-}
+import { buildSource, sorter } from '../utils'
 
 class List extends Component {
   constructor(props) {
@@ -53,6 +34,7 @@ class List extends Component {
   }
 
   addImage(imageUrl) {
+    if(!imageUrl) return
     this.state.source.push({rating: 0, url: imageUrl})
     this.setState({
       source: sorter(this.state.source)
@@ -63,11 +45,10 @@ class List extends Component {
     return (
       <div className='images-list'>
         <div className='images-list-galery'>
-
-        {this.state.source.map((val, i) => {
-          return <Image source={val} key={i} changeRatingUp={this.changeRatingUp} changeRatingDown={this.changeRatingDown}/>
-        })}
-        <AddImage addImage={this.addImage}/>
+          {this.state.source.map((val, i) => {
+            return <Image source={val} key={i} changeRatingUp={this.changeRatingUp} changeRatingDown={this.changeRatingDown}/>
+          })}
+          <AddImage addImage={this.addImage}/>
         </div>
       </div>
     )
