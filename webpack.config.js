@@ -5,7 +5,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const config = {
   context: path.resolve(__dirname, 'src'),
-  entry: './index',
+  entry: {
+    index: './index',
+    server: './server'
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js'
@@ -17,6 +20,10 @@ const config = {
   },
   resolve: {
     extensions: ['.js', '.jsx', '.styl'],
+  },
+  externals: {
+    http: 'http',
+    fs: 'fs'
   },
   module: {
     rules: [{
@@ -50,6 +57,7 @@ const config = {
     new HtmlWebpackPlugin({
       template: 'index.html',
       inject: 'body',
+      excludeChunks: ['server']
     })
   ],
 }

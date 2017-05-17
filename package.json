@@ -5,6 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "build": "npm i",
+    "heroku-postbuild": "webpack",
     "prestart": "webpack",
     "start": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
